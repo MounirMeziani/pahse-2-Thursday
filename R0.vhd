@@ -12,11 +12,11 @@ END ENTITY;
 ARCHITECTURE arch OF R0 IS
 	COMPONENT register32 
 	PORT ( 
-		inputD			:	IN std_logic_vector(31 downto 0);
+		d			:	IN std_logic_vector(31 downto 0);
 		clr				:	IN std_logic;
 		clk				:	IN std_logic;
-		reg_in			:	IN std_logic;
-		outputQ		   :	OUT std_logic_vector(31 downto 0)
+		ld			:	IN std_logic;
+		q		   :	OUT std_logic_vector(31 downto 0)
 		);
 	END COMPONENT;
 	SIGNAL internal_out : std_logic_vector(31 downto 0);
