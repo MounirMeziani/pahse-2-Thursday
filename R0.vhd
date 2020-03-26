@@ -4,7 +4,7 @@ use ieee.std_logic_1164.all;
 ENTITY R0 is
 	PORT(
 		input							:	IN std_logic_vector(31 downto 0);
-		clr,clk,reg_in, BAout	:	IN std_logic;
+		clr,clk,ld, BAout	:	IN std_logic;
 		output						:	OUT std_logic_vector(31 downto 0)	
 	);
 END ENTITY;
@@ -21,7 +21,7 @@ ARCHITECTURE arch OF R0 IS
 	END COMPONENT;
 	SIGNAL internal_out : std_logic_vector(31 downto 0);
 BEGIN	
-	inst : register32 PORT MAP (input, clr, clk, reg_in, internal_out);
+	inst : register32 PORT MAP (input, clr, clk, ld, internal_out);
 	output(0) <= internal_out(0) and not BAout;
 	output(1) <= internal_out(1) and not BAout;
 	output(2) <= internal_out(2) and not BAout;
